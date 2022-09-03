@@ -4,11 +4,8 @@ import org.hamcrest.MatcherAssert;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import stellarburgers.nomoreparties.site.*;
 
-
-import static com.codeborne.selenide.Selenide.Wait;
 import static org.hamcrest.CoreMatchers.containsString;
 
 @RunWith(Parameterized.class)
@@ -52,15 +49,11 @@ public class RegistrationWithCorrectPasswordTest {
         LoginPage loginPage = registerPage.EnterDataInToRegistrationForm(registrationData.getName(),
                 registrationData.getEmail(),
                 registrationData.getPassword());
-        Thread.sleep(1000);
         MainPage main = loginPage.EnterDataInToLoginForm(registrationData.getEmail(), registrationData.getPassword());
-        Thread.sleep(1000);
         ProfilePage profile = main.clickToLinkOffice();
-        Thread.sleep(1000);
         SelenideElement fieldEmail = profile.getEmailField();
         MatcherAssert.assertThat(fieldEmail.getValue(), containsString(registrationData.getEmail()));
         profile.clickToExit();
-        Thread.sleep(1000);
     }
 
 

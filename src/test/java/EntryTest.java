@@ -36,7 +36,6 @@ public class EntryTest {
 
     @Test
     public void shouldEntryByPressLoginButtonOnTheMainPageTest() throws InterruptedException {
-        Thread.sleep(300);
         Selenide.open(url);
         MainPage mainPage = new MainPage();
         loginPage = pressButtonEntryToAccount(mainPage.getButtonLogin());
@@ -45,7 +44,6 @@ public class EntryTest {
 
     @Test
     public void shouldEntryByPressPersonalOfficeButtonOnTheMainPageTest() throws InterruptedException {
-        Thread.sleep(300);
         Selenide.open(url);
         MainPage mainPage = new MainPage();
         loginPage = pressButtonEntryToAccount(mainPage.getButtonOffice());
@@ -54,7 +52,6 @@ public class EntryTest {
 
     @Test
     public void shouldEntryByPressLoginButtonOnRegistrationFormTest() throws InterruptedException {
-        Thread.sleep(300);
         Selenide.open(url + "register");
         RegisterPage registerPage = new RegisterPage();
         loginPage = pressButtonEntryToAccount(registerPage.getLinkEntry());
@@ -63,7 +60,6 @@ public class EntryTest {
 
     @Test
     public void shouldEntryByPressLoginButtonOnPasswordRecoveryFormTest() throws InterruptedException {
-        Thread.sleep(300);
         Selenide.open(url + "forgot-password");
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
         loginPage = pressButtonEntryToAccount(forgotPasswordPage.getLinkEntry());

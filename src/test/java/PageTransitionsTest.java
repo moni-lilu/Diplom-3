@@ -1,13 +1,9 @@
 import com.codeborne.selenide.*;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.hamcrest.MatcherAssert;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import stellarburgers.nomoreparties.site.*;
-
-import static com.codeborne.selenide.Selenide.Wait;
 
 @RunWith(Parameterized.class)
 public class PageTransitionsTest {
@@ -59,9 +55,7 @@ public class PageTransitionsTest {
         } else {
             Selenide.open(url + path);
         }
-        //Thread.sleep(1000);
         (new HeaderClass()).clickToLinkOffice();
-        //Thread.sleep(1000);
         String currentUrl = WebDriverRunner.currentFrameUrl();
         Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile", currentUrl);
     }

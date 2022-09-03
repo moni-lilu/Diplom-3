@@ -1,6 +1,5 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.MatcherAssert;
@@ -29,7 +28,6 @@ public class ExitTest {
         Selenide.open(url + "register");
         RegisterPage registerPage = new RegisterPage();
         loginPage = registerPage.EnterDataInToRegistrationForm(name, email, password);
-        Thread.sleep(500);
     }
 
     @AfterClass
@@ -60,10 +58,8 @@ public class ExitTest {
 
     public LoginPage makeExit() throws InterruptedException {
         MainPage main = loginPage.EnterDataInToLoginForm(email, password);
-        Thread.sleep(500);
         ProfilePage profile = main.clickToLinkOffice();
         profile.clickToExit();
-        Thread.sleep(500);
         return new LoginPage();
     }
 
